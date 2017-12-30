@@ -3,7 +3,7 @@ pipelineJob("ios-submit-appstore") {
 
   definition {
     cps {
-      script(readFileFromWorkspace('submit-appstore/Jenkinsfile'))
+      script(readFileFromWorkspace('pipelines/submit_appstore.groovy'))
     }
   }
 }
