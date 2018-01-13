@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'iOS Beta Build!'
+                echo 'iOS Beta Build (changed)!'
             }
         }
     }
