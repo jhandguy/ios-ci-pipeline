@@ -3,18 +3,19 @@ pipeline {
   agent any
 
   stages {
-  stage('Seed Jobs') {
-    steps {
-      dir('shared') {
-        git url: 'https://github.com/jhandguy/app-ci-pipeline.git', branch: 'generic'
-        sh 'cp -r jobs ../jobs'
-      }
+    stage('Seed Jobs') {
+      steps {
+        dir('shared') {
+          git url: 'https://github.com/jhandguy/app-ci-pipeline.git', branch: 'generic'
+          sh 'cp -r jobs ../jobs'
+        }
 
-      jobDsl targets: ['jobs/*.groovy'].join('\n'),
-             removedJobAction: 'DELETE',
-             removedViewAction: 'DELETE',
-             sandbox: true,
-             additionalParameters: [platform: 'ios']
+        jobDsl targets: ['jobs/*.groovy'].join('\n'),
+               removedJobAction: 'DELETE',
+               removedViewAction: 'DELETE',
+               sandbox: true,
+               additionalParameters: [platform: 'ios']
+      }
     }
   }
 }
