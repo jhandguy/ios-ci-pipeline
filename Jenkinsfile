@@ -7,7 +7,7 @@ pipeline {
       steps {
         dir('shared') {
           git url: 'https://github.com/jhandguy/app-ci-pipeline.git', branch: 'generic'
-          sh 'cp -r jobs ../jobs'
+          sh 'cp jobs/*.groovy ../jobs'
         }
 
         jobDsl targets: ['jobs/*.groovy'].join('\n'),
