@@ -3,13 +3,18 @@ pipeline {
   agent any
 
   stages {
-    stage('Seed iOS Jobs') {
-      steps {
-        jobDsl targets: ['jobs/*.groovy'].join('\n'),
-               removedJobAction: 'DELETE',
-               removedViewAction: 'DELETE',
-               sandbox: true
+  stage('Seed Jobs') {
+    steps {
+      dir('shared') {
+        git url: 'https://github.com/jhandguy/app-ci-pipeline.git', branch: 'generic'
+        sh 'cp -r jobs ../jobs'
       }
+
+      jobDsl targets: ['jobs/*.groovy'].join('\n'),
+             removedJobAction: 'DELETE',
+             removedViewAction: 'DELETE',
+             sandbox: true,
+             additionalParameters: [platform: 'ios']
     }
   }
 }
