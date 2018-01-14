@@ -4,13 +4,13 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Building App...'
-                sleep 30
+                sleep 1
             }
         }
         stage('submit') {
             steps {
                 echo 'Submitting to Appstore...'
-                sleep 30
+                sleep 1
             }
         }
         stage('post') {
