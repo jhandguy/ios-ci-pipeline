@@ -4,6 +4,7 @@ pipelineJob("ios-submit-appstore") {
   definition {
     cps {
       script(readFileFromWorkspace('pipelines/submit_appstore.groovy'))
+      sandbox()
     }
   }
 }
