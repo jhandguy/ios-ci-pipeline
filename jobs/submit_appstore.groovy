@@ -1,5 +1,5 @@
 pipelineJob("ios-submit-appstore") {
-  description("Submit iOS App to Appstore")
+  description("Submit iOS App to Appstore 2")
 
   definition {
     cps {
